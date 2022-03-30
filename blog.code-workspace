@@ -1,16 +1,24 @@
 {
   "folders": [
     {
+      "name": "client",
       "path": "client"
     },
     {
+      "name": "posts",
       "path": "posts"
     },
     {
+      "name": "comments",
       "path": "comments"
     },
     {
+      "name": "event-bus",
       "path": "event-bus"
+    },
+    {
+      "name": "query",
+      "path": "query"
     }
   ],
   "settings": {}
