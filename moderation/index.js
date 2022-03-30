@@ -6,14 +6,26 @@ const app = express();
 // parse various different custom JSON types as JSON
 app.use(bodyParser.json());
 
-app.post("/events", (req, res) => {
+app.post("/events", async (req, res) => {
   const { type, data } = req.body;
   console.log(type);
   // add a comment to the post
   if (type == "CommentCreated") {
-    const { id, content, postId } = data;
-    //
+    const { content } = data;
+    // logic to approve or reject the content
+    const status = content.includes("orange") ? "rejected" : "approved";
+
+    // send data to the message broker
+    await axios.post("http://localhost:4005/events", {
+      type: "CommentModerated",
+      data: {
+        ...data,
+        status,
+      },
+    });
   }
+
+  res.send({});
 });
 
 app.listen(4003, () => {

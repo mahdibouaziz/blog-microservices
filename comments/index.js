@@ -27,6 +27,7 @@ app.post("/posts/:id/comments", async (req, res) => {
   comments.push({
     id: commentId,
     content,
+    status: "pending",
   });
 
   // update the comments
@@ -39,14 +40,32 @@ app.post("/posts/:id/comments", async (req, res) => {
       id: commentId,
       content,
       postId,
+      status: "pending",
     },
   });
 
   res.status(201).send(commentsByPostId);
 });
 
-app.post("/events", (req, res) => {
-  console.log("Reveived event", req.body.type);
+app.post("/events", async (req, res) => {
+  const { type, data } = req.body;
+  console.log(type);
+
+  // update the status of the comment
+  if (type == "CommentModerated") {
+    const { id, postId, status, content } = data;
+    const comments = commentsByPostId[postId];
+
+    const comment = comments.find((comment) => comment.id === id);
+    comment.status = status;
+
+    // emit an event to the message broker
+    await axios.post("http://localhost:4005/events", {
+      type: "CommentUpdated",
+      data: { id, postId, status, content },
+    });
+  }
+
   res.status(201).send({});
 });
 app.listen(4001, () => {
