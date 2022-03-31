@@ -15,8 +15,6 @@ spec:
       containers:
         - name: event-bus
           image: mahdibouaziz/event-bus
-          ports:
-            - containerPort: 4005
 
 ---
 apiVersion: v1

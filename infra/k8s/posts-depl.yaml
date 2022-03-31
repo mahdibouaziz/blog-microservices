@@ -15,8 +15,6 @@ spec:
       containers:
         - name: posts
           image: mahdibouaziz/posts
-          ports:
-            - containerPort: 4000
 
 ---
 apiVersion: v1
