@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: event-bus
-          image: mahdibouaziz/event-bus:1.0.0
+          image: mahdibouaziz/event-bus:1.0.1
 
 ---
 apiVersion: v1

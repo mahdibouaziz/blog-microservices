@@ -53,7 +53,7 @@ app.listen(4002, async () => {
   console.log("listening on 4002");
 
   // sync events
-  const res = await axios.get("http://localhost:4005/events"); // message broker service
+  const res = await axios.get("http://event-bus-srv:4005/events"); // message broker service
 
   res.data.forEach((event) => {
     console.log("Processing event ", event.type);
