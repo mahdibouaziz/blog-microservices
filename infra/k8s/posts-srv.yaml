@@ -11,3 +11,4 @@ spec:
       protocol: TCP
       port: 4000 #service port
       targetPort: 4000 # pod port
+      nodePort: 30001

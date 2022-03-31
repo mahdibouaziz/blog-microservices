@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: posts
-          image: mahdibouaziz/posts
+          image: mahdibouaziz/posts:1.0.0
 
 ---
 apiVersion: v1
