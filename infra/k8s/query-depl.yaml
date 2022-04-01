@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: query
-          image: mahdibouaziz/query:1.1.1
+          image: mahdibouaziz/query
 
 ---
 apiVersion: v1
