@@ -18,6 +18,7 @@ app.get("/posts", (req, res) => {
 });
 
 app.post("/posts/create", async (req, res) => {
+  console.log("inside create");
   const id = randomBytes(4).toString("hex");
   const title = req.body.title;
   posts[id] = {
@@ -26,13 +27,17 @@ app.post("/posts/create", async (req, res) => {
   };
 
   // emit an event to the message broker
-  await axios.post("http://event-bus-srv:4005/events", {
-    type: "PostCreated",
-    data: {
-      id,
-      title,
-    },
-  });
+  try {
+    await axios.post("http://event-bus-srv:4005/events", {
+      type: "PostCreated",
+      data: {
+        id,
+        title,
+      },
+    });
+  } catch (error) {
+    console.log(error);
+  }
 
   res.status(201).send(posts[id]);
 });

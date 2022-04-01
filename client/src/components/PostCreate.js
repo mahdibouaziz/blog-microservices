@@ -9,6 +9,7 @@ const PostCreate = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
+    console.log("creating a post");
 
     await axios.post(postServiceUrl, {
       title,
