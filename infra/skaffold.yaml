@@ -11,7 +11,7 @@ build:
     push: false
   artifacts:
     - image: mahdibouaziz/client
-      context: client
+      context: ../client
       docker:
         dockerfile: Dockerfile
       sync:
@@ -19,7 +19,7 @@ build:
           - dest: .
             src: "src/**/*.js"
     - image: mahdibouaziz/comments
-      context: comments
+      context: ../comments
       docker:
         dockerfile: Dockerfile
       sync:
@@ -27,7 +27,7 @@ build:
           - dest: .
             src: "*.js"
     - image: mahdibouaziz/posts
-      context: posts
+      context: ../posts
       docker:
         dockerfile: Dockerfile
       sync:
@@ -35,7 +35,7 @@ build:
           - dest: .
             src: "*.js"
     - image: mahdibouaziz/event-bus
-      context: event-bus
+      context: ../event-bus
       docker:
         dockerfile: Dockerfile
       sync:
@@ -43,7 +43,7 @@ build:
           - dest: .
             src: "*.js"
     - image: mahdibouaziz/moderation
-      context: moderation
+      context: ../moderation
       docker:
         dockerfile: Dockerfile
       sync:
@@ -51,7 +51,7 @@ build:
           - dest: .
             src: "*.js"
     - image: mahdibouaziz/query
-      context: query
+      context: ../query
       docker:
         dockerfile: Dockerfile
       sync:
