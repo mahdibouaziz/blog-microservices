@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 
 const CommentCreate = ({ postId }) => {
-  const commentServiceUrl = `http://localhost:4001/posts/${postId}/comments`;
+  const commentServiceUrl = `http://posts.com/posts/${postId}/comments`;
 
   const [content, setContent] = useState("");
 

@@ -5,7 +5,7 @@ import { useState } from "react";
 import CommentCreate from "./CommentCreate";
 import CommentList from "./CommentList";
 
-const queryServiceUrl = "http://localhost:4002/posts";
+const queryServiceUrl = "http://posts.com/posts";
 
 const PostList = () => {
   const [posts, setPosts] = useState({});

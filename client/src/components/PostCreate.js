@@ -2,7 +2,7 @@ import axios from "axios";
 import React from "react";
 import { useState } from "react";
 
-const postServiceUrl = "http://localhost:4000/posts";
+const postServiceUrl = "http://posts.com/posts";
 
 const PostCreate = () => {
   const [title, setTitle] = useState("");
