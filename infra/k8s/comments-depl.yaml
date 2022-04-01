@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: comments
-          image: mahdibouaziz/comments:1.0.0
+          image: mahdibouaziz/comments:1.1.1
 
 ---
 apiVersion: v1
